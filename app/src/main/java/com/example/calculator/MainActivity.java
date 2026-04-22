@@ -1,16 +1,20 @@
 package com.example.calculator;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView tvExpression;  // 算式显示区域
     private TextView tvResult;      // 算数结果显示区域
+    private Button btnDarkMode;     // 深色模式切换按钮
 
     private String expression = "";      // 当前输入
     private boolean justCalculated = false; // 结果
@@ -22,6 +26,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         tvExpression = findViewById(R.id.tvExpression);
         tvResult = findViewById(R.id.tvResult);
+        btnDarkMode = findViewById(R.id.btnDarkMode);
+
+        // 深色模式设置
+        SharedPreferences sp = getSharedPreferences("settings", Context.MODE_PRIVATE);
+        boolean isDark = sp.getBoolean("darkMode", false);
+        if (isDark) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+        updateDarkModeUI(isDark);
+
+        // 深色模式切换按钮
+        btnDarkMode.setOnClickListener(v -> {
+            // 获取当前模式并取反
+            SharedPreferences sp2 = getSharedPreferences("settings", Context.MODE_PRIVATE);
+            boolean currentDark = sp2.getBoolean("darkMode", false);
+            boolean newDark = !currentDark;
+
+            // 保存设置
+            sp2.edit().putBoolean("darkMode", newDark).apply();
+
+            // 切换模式
+            if (newDark) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+
+            updateDarkModeUI(newDark);
+        });
 
         // 所有按钮的点击事件
         int[] btnIds = {
@@ -36,6 +71,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    // 深色模式按钮的图标
+    private void updateDarkModeUI(boolean isDark) {
+        if (btnDarkMode != null) {
+            btnDarkMode.setText(isDark ? "☀️" : "🌙");
+        }
+    }
+
     @Override
     public void onClick(View v) {
         Button btn = (Button) v;
@@ -43,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.btnC:
-                // C按钮
                 expression = "";
                 justCalculated = false;
                 tvExpression.setText("");
@@ -51,7 +92,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return;
 
             case R.id.btnDel:
-                // Backspace
                 if (justCalculated) {
                     expression = "";
                     justCalculated = false;
@@ -64,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return;
 
             case R.id.btnEqual:
-                // 结果
                 doCalculate();
                 return;
 

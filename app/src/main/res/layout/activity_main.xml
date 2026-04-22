@@ -4,17 +4,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5"
+    android:background="@color/bg_gray"
     android:padding="16dp">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="学号:25270244"
-        android:textSize="16sp"
-        android:textColor="#555555"
-        android:gravity="start"
-        android:paddingBottom="8dp"/>
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="学号:25270244"
+            android:textSize="16sp"
+            android:textColor="#555555"
+            android:gravity="start"/>
+
+        <android.widget.Button android:id="@+id/btnDarkMode"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="🌙"
+            android:textSize="18sp"
+            android:background="@drawable/bg_btn_normal"
+            android:padding="0dp"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +48,7 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textSize="32sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:maxLines="2"
             android:layout_marginBottom="8dp"/>
 
@@ -41,7 +58,7 @@
             android:layout_height="wrap_content"
             android:text="0"
             android:textSize="48sp"
-            android:textColor="#888888"/>
+            android:textColor="@color/gray"/>
     </LinearLayout>
 
     <GridLayout
@@ -57,7 +74,7 @@
             android:layout_columnWeight="1"
             android:text="C"
             android:textSize="22sp"
-            android:textColor="#1976D2"
+            android:textColor="@color/blue"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btnDiv"
@@ -66,7 +83,7 @@
             android:layout_columnWeight="1"
             android:text="÷"
             android:textSize="22sp"
-            android:textColor="#1976D2"
+            android:textColor="@color/blue"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btnMul"
@@ -75,7 +92,7 @@
             android:layout_columnWeight="1"
             android:text="×"
             android:textSize="22sp"
-            android:textColor="#1976D2"
+            android:textColor="@color/blue"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btnDel"
@@ -84,7 +101,7 @@
             android:layout_columnWeight="1"
             android:text="⌫"
             android:textSize="22sp"
-            android:textColor="#1976D2"
+            android:textColor="@color/blue"
             android:background="@drawable/bg_btn_normal"/>
 
         <!-- 第二行：7  8  9  − -->
@@ -94,7 +111,7 @@
             android:layout_columnWeight="1"
             android:text="7"
             android:textSize="22sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btn8"
@@ -103,7 +120,7 @@
             android:layout_columnWeight="1"
             android:text="8"
             android:textSize="22sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btn9"
@@ -112,7 +129,7 @@
             android:layout_columnWeight="1"
             android:text="9"
             android:textSize="22sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btnSub"
@@ -121,7 +138,7 @@
             android:layout_columnWeight="1"
             android:text="−"
             android:textSize="22sp"
-            android:textColor="#1976D2"
+            android:textColor="@color/blue"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btn4"
@@ -130,7 +147,7 @@
             android:layout_columnWeight="1"
             android:text="4"
             android:textSize="22sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btn5"
@@ -139,7 +156,7 @@
             android:layout_columnWeight="1"
             android:text="5"
             android:textSize="22sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btn6"
@@ -148,7 +165,7 @@
             android:layout_columnWeight="1"
             android:text="6"
             android:textSize="22sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btnAdd"
@@ -157,7 +174,7 @@
             android:layout_columnWeight="1"
             android:text="+"
             android:textSize="22sp"
-            android:textColor="#1976D2"
+            android:textColor="@color/blue"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btn1"
@@ -166,7 +183,7 @@
             android:layout_columnWeight="1"
             android:text="1"
             android:textSize="22sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btn2"
@@ -175,7 +192,7 @@
             android:layout_columnWeight="1"
             android:text="2"
             android:textSize="22sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btn3"
@@ -184,7 +201,7 @@
             android:layout_columnWeight="1"
             android:text="3"
             android:textSize="22sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btnEqual"
@@ -194,7 +211,7 @@
             android:layout_columnWeight="1"
             android:text="="
             android:textSize="28sp"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:background="@drawable/bg_btn_equal"/>
 
         <android.widget.Button android:id="@+id/btnPercent"
@@ -203,7 +220,7 @@
             android:layout_columnWeight="1"
             android:text="%"
             android:textSize="22sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btn0"
@@ -212,7 +229,7 @@
             android:layout_columnWeight="1"
             android:text="0"
             android:textSize="22sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:background="@drawable/bg_btn_normal"/>
 
         <android.widget.Button android:id="@+id/btnDot"
@@ -221,7 +238,7 @@
             android:layout_columnWeight="1"
             android:text="."
             android:textSize="22sp"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:background="@drawable/bg_btn_normal"/>
 
     </GridLayout>
